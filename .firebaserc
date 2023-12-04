@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "navkardreamsoft-8df6f": {
+      "hosting": {
+        "navkarDreamsoft": [
+          "navkardreamsoft-8df6f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "navkardreamsoft-8df6f"
+  }
+}

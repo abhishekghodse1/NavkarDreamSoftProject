@@ -1,0 +1,167 @@
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <body style="background-image: url(./assets/college.jpg); background-size: cover; height: 100vh; margin: 0;">
+        <form  class="container mt-5" [formGroup]="contactInfo" (ngSubmit)="onSubmit()">
+      
+          <h1 class="text-center">Student Registration</h1>
+          <br>
+      
+          <table  class="table table-bordered table-striped w-50 mx-auto ">
+            <tr>
+              <th>
+                <label for="name">Name: </label>
+              </th>
+              <td>
+                <input type="text" id="name" name="name" required formControlName="name"
+                       [class.invalid-input]="contactInfo.get('name')?.invalid && contactInfo.get('name')?.touched">
+                <div *ngIf="contactInfo.get('name')?.invalid && contactInfo.get('name')?.touched">
+                  <span class="error-message" style="color: red;">This field is required</span>
+                </div>
+              </td>
+      
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="gender">Gender: </label>
+              </th>
+              <td>
+                <input type="radio" id="maleGender" name="gender" value="Male" formControlName="gender">Male
+                <input type="radio" id="femaleGender" name="gender" value="Female" formControlName="gender">Female
+              </td>
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="dob">Date of Birth: </label>
+              </th>
+              <td>
+                <input type="date" id="dob" name="dob" value="dob" formControlName="dob">
+      
+              </td>
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="email">Email: </label>
+              </th>
+              <td>
+                <input type="email" id="email" name="email" required formControlName="email"
+                       [class.invalid-input]="contactInfo.get('email')?.invalid && contactInfo.get('email')?.touched">
+                <div *ngIf="contactInfo.get('email')?.invalid && contactInfo.get('email')?.touched">
+                  <span class="error-message" style="color: red;">This field is required and must be a valid email address</span>
+                </div>
+              </td>
+      
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="registrationfees">Registration Fees: </label>
+              </th>
+              <td>
+                <input type="number" id="registrationfees" name="registrationfees" formControlName="registrationfees">
+                <div *ngIf="contactInfo.get('registrationfees')?.invalid && contactInfo.get('registrationfees')?.touched">
+                    <span class="error-message" style="color: red;">This field is required</span>
+                  </div>
+      
+              </td>
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="collegefees">College Fees: </label>
+              </th>
+              <td>
+                <input type="number" id="collegefees" name="collegefees" formControlName="collegefees">
+                <div *ngIf="contactInfo.get('collegefees')?.invalid && contactInfo.get('collegefees')?.touched">
+                    <span class="error-message" style="color: red;">This field is required</span>
+                  </div>
+      
+              </td>
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="examfees">Exam Fees: </label>
+              </th>
+              <td>
+                <input type="number" id="examfees" name="examfees" formControlName="examfees">
+                <div *ngIf="contactInfo.get('examfees')?.invalid && contactInfo.get('examfees')?.touched">
+                    <span class="error-message" style="color: red;">This field is required</span>
+                  </div>
+      
+              </td>
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="totalfees">Total Fees: </label>
+              </th>
+              <td>
+                <input type="number" id="totalfees" name="totalfees" formControlName="totalfees" [disabled]="true">
+                <div *ngIf="contactInfo.get('totalfees')?.invalid && contactInfo.get('totalfees')?.touched">
+                    <span class="error-message" style="color: red;">This field is required</span>
+                  </div>
+      
+              </td>
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="address">Address: </label>
+              </th>
+              <td>
+                <textarea id="address" name="address" required formControlName="address"
+                          [class.invalid-input]="contactInfo.get('address')?.invalid && contactInfo.get('address')?.touched"></textarea>
+                <div *ngIf="contactInfo.get('address')?.invalid && contactInfo.get('address')?.touched">
+                  <span class="error-message" style="color: red;">This field is required</span>
+                </div>
+              </td>
+      
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="passingYear">Passing Year: </label>
+              </th>
+              <td>
+                <select formControlName="passingYear">
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                </select>
+      
+              </td>
+            </tr><br>
+      
+            <tr>
+              <th>
+                <label for="mobilno">Mobile no: </label>
+              </th>
+              <td>
+                <input type="tel" id="mobilno" name="mobilno" formControlName="mobilno">
+                <div *ngIf="contactInfo.get('mobilno')?.invalid && contactInfo.get('mobilno')?.touched">
+                    <span class="error-message" style="color: red;">This field is required</span>
+                  </div>
+                  <div *ngIf="contactInfo.get('mobilno')?.value?.length < 10 || contactInfo.get('mobilno')?.value?.length > 10">
+                    <span class="error-message" style="color: red;">Please enter a valid mobile number with exactly 10 digits</span>
+                  </div>
+                
+      
+              </td>
+            </tr><br>
+      
+            <tr >
+                
+              <td colspan="2">
+                <button type="submit" class="btn btn-primary m-2">Save</button>
+                <button type="reset" class="btn btn-primary m-2">Delete</button>
+              </td>
+            </tr>
+      
+          </table>
+        </form>
+      </body>
+      
